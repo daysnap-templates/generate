@@ -1,7 +1,17 @@
 module.exports = {
-  // 配置 questions 相关
-  // configureInquirer: [],
-  // configureInquirer: {},
+
+  // 配置 handlebars helper
+  // helper 脚手架自带
+  // if_eq、unless_eq、if_includes、unless_includes
+  // configureHelper: {
+  //   includes: function (a, b, opts) {
+  //     return a?.includes(b) ? opts.fn(this) : opts.inverse(this)
+  //   }
+  // },
+
+  // 配置 questions 相关 三种方式
+  // configureInquirer: [{ name: 'q1', type: 'string', ... }],
+  // configureInquirer: { q1: { type: 'string', ... } },
   // configureInquirer: async ({ inquirer, metalsmith, files }) => answers
   configureInquirer: async ({ inquirer, metalsmith, files }) => {
     const { author, name } = metalsmith.metadata()
@@ -24,6 +34,48 @@ module.exports = {
         message: "作者",
         default: author,
       },
+      {
+        type: 'string',
+        name: 'license',
+        message: 'License',
+        default: 'MIT',
+      },
+      {
+        type: 'checkbox',
+        name: 'lintConfig',
+        choices: ['eslint', 'prettier'],
+      },
     ])
   },
+
+  // 配置过滤文件的方式 2种
+  // configureFilter ({ minimatch, files, metalsmith }) {
+  //   const fileNames = Object.keys(files)
+  //   const { lintConfig } = metalsmith.metadata()
+  //   fileNames.forEach((file) => {
+  //     if (minimatch(file, '.eslintrc.js', { dot: true })) {
+  //       if (!lintConfig.includes('eslint')) {
+  //         delete files[file]
+  //       }
+  //     }
+  //   })
+  // }
+  configureFilter: {
+    '.eslintrc.js': 'lintConfig.includes("eslint")',
+  },
+
+  // 完成
+  complete: (data, { logger, chalk }) => {
+    const message = `
+# ${chalk.green('项目初始化成功!')}
+# 可以执行:
+
+  ${chalk.yellow(
+      `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev`
+    )}
+
+相关文档可以查看： https://github.com/daysnap
+`
+    console.log(message)
+  }
 }
