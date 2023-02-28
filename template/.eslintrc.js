@@ -4,8 +4,8 @@ module.exports = {
   root: true,
   parserOptions: {
     parser: 'babel-eslint',
-    {{#includes lintConfig 'prettier'}}
+    {{#if_includes lintConfig 'prettier'}}
     prettier: 'babel-eslint'
-    {{/includes}}
+    {{/if_includes}}
   },
 }
