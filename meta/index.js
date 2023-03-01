@@ -1,12 +1,8 @@
 module.exports = {
 
-  // 配置 handlebars helper
-  // helper 脚手架自带
-  // if_eq、unless_eq、if_includes、unless_includes
+  // 配置 artTemplate 过滤器
   // configureHelper: {
-  //   includes: function (a, b, opts) {
-  //     return a?.includes(b) ? opts.fn(this) : opts.inverse(this)
-  //   }
+  //   includes: function () {}
   // },
 
   // 配置 questions 相关 三种方式
