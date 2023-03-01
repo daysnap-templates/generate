@@ -1,6 +1,7 @@
-# generate
+# ${{ name }}
 
-生成基准模板项目
+${{ description }}
+
 
 ## 使用
 
@@ -11,7 +12,7 @@ npm install @daysnap/cli
 
 2. 在你的项目目录下执行
 ```bash 
-dsc create my-project -t generate
+dsc create my-project -t {{ name }}
 ```
 
 3. 更多命令可以执行 `dsc -h` 查看
