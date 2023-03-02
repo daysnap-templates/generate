@@ -70,7 +70,7 @@ module.exports = {
       `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev`
     )}
 
-相关文档可以查看： https://github.com/daysnap
+相关文档可以查看： https://github.com/daysnap-templates/${{name}}
 `
     console.log(message)
   }
