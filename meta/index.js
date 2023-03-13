@@ -62,7 +62,7 @@ module.exports = {
   complete: (data, { logger, chalk }) => {
     const message = `
 # ${chalk.green('项目初始化成功!')}
-# 请在${data.inPlace ? './template' : path.join(data.destDirName, 'template')} 下开发你的模板\n
+# 请在${data.inPlace ? './template' : path.join(data.destDirName, 'template')} 下开发你的模板
 
 相关文档可以查看： https://github.com/daysnap-templates/generate
 `
