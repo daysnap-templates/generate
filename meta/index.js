@@ -17,15 +17,15 @@ module.exports = {
       {
         type: 'string',
         name: 'name',
-        message: '模板名称，需要与你 git repo 名称保持一致',
+        message: '模板工程名称，需要与你 git repo 名称保持一致',
         validate: (v) => (!!v ? true : '请填写模板名称'),
         default: name,
       },
       {
         type: 'string',
         name: 'description',
-        message: '模板项目描述',
-        default: '一个简单的项目模板',
+        message: '模板程描述',
+        default: '一个简单的项目模板工程',
       },
       {
         type: 'string',
