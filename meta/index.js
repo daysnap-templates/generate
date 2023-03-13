@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
 
   // 配置 artTemplate 过滤器
@@ -60,13 +62,9 @@ module.exports = {
   complete: (data, { logger, chalk }) => {
     const message = `
 # ${chalk.green('项目初始化成功!')}
-# 可以执行:
+# 请在${data.inPlace ? './template' : path.join(data.destDirName, 'template')} 下开发你的模板\n
 
-  ${chalk.yellow(
-      `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}npm install\n  npm run dev`
-    )}
-
-相关文档可以查看： https://github.com/daysnap
+相关文档可以查看： https://github.com/daysnap-templates/generate
 `
     console.log(message)
   }
